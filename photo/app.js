@@ -10,15 +10,34 @@ const videoDir = path.join(workDir,'videos');
 const captured = path.join(workDir,'captured');
 const duplicated = path.join(workDir,'duplicated');
 
+const items = [];
+
 const makeFolder = (dir)=>{
     if(!fs.existsSync(dir)){
         fs.mkdirSync(dir);
     }
 }
 
-const items = fs.readdir(workDir,(err,filelist)=>{
-    //items.push(filelist);
+fs.readdir(workDir,(err,filelist)=>{
+    filelist.forEach(file=>{
+        let type = path.extname(file);
+        switch(type){
+            case 'mp4' || 'mov':
+                fs.rename(workDir,'videos',()=>{
+                    console.log("h");
+                });
+
+        }
+    })
 })
+
+
+/**
+const items = (workDir)=>{
+    fs.readdir(workDir,(err,filelist)=>{
+        filelist.forEach(file=>{
+
+        })
 
 console.log(`video dir : ${videoDir}`);
 console.log(`items : ${items}`);

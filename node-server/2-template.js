@@ -24,9 +24,8 @@ const server = http.createServer((req, res) => {
         }).then(data => res.end(data)) // key value 같으면 생략하고 {name} 가능
 
     } else if (url === '/courses') {
-        ejs.renderFile('./template/courses.ejs', {
-            courses:courses
-        }).then(data => res.end(data)) // key value 같으면 생략하고 {name} 가능
+        ejs.renderFile('./template/courses.ejs', {courses:courses})
+        .then(data => res.end(data)) // key value 같으면 생략하고 {name} 가능
     } else {
         ejs.renderFile('./template/not-found.ejs', {
             name: name

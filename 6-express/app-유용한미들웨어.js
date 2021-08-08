@@ -21,7 +21,7 @@ app.use(morgan('combined'));
 // 아무 옵션도 안주면 에러 발생하므로 extended:true of false 반드시 사용(객체안에 객체를 파싱할 수 있게 하려면 true)
 app.use(express.urlencoded({extended: false}));  
 
-// 
+// 공통적으로 보안에 필요한 header 내용을 자동으로 추가해준다 
 app.use(helmet());
 
 // 정적 파일을 제공해주는 미들웨어 아래 링크로 설명 참고
